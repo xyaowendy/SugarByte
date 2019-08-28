@@ -1,0 +1,2 @@
+var gitTest = "this is to test if git works"
+print("hope git works")
