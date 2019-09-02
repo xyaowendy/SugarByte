@@ -1,0 +1,4 @@
+
+// Display the soilLayer on the map.
+Map.setCenter( , );
+Map.addLayer(soilLayer);
