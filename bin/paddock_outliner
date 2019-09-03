@@ -1,0 +1,68 @@
+/**
+ * @fileoverview This script contains functions for 
+ * rendering one or more feature collections on to the map as outlines.
+ * 
+ * 
+ */
+
+var manager = {};
+
+var debug = require('users/csiro1622crop/app:bin/debug');
+
+/**
+ * Instantiate the paddock outline visualiser tool.
+ * @param {Object} app - The root application object. This must be configured
+ * @param {String} app.PROPERTY_SELECTED - The name of the property that flags a paddock as selected.
+ * @param {ee.FeatureCollection} app.paddocks - The complete list of paddocks.
+ */
+exports.initialise = function(app) {
+ debug.info('Initialising paddockOutliner.');
+  // Save a reference to the app
+  manager.app = app;
+  manager.outlines = ui.Map.Layer();
+  manager.selected = ui.Map.Layer();
+};
+
+// --------------------------------------------
+// Module constants
+// --------------------------------------------
+// visParams objects for outlines.
+var outlineVisParams = {
+  palette:'FFFFFF'
+};
+var selectedVisParams = {
+  palette:'FF0000'
+};
+// Layer titles
+var LAYER_NAME_OUTLINES = 'All paddock outlines';
+var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
+// Whether or not the outlines should be shown automatically.
+// Setting these to false can speed up app performance.
+var SHOWN_OUTLINES = true;
+var SHOWN_SELECTED = true;
+
+
+/**
+ * Resets the outline layer to the current master list of paddocks.
+ */
+var setOutlineLayer = function() {
+  debug.info('Setting the basic paddocks outline map layer.');
+  // Check if the data source for paddock outlines is empty
+  if (manager.app.paddocks === null) {
+    return;
+  }
+  // Create a layer for the outlines of all recognised paddocks
+  var outlinesOfPaddocks = ee.Image().paint(manager.app.paddocks, 0, 1);
+  manager.outlines = ui.Map.Layer({
+      eeObject: outlinesOfPaddocks, 
+      visParams: outlineVisParams, 
+      name: LAYER_NAME_OUTLINES,
+      shown: SHOWN_OUTLINES,
+  });
+};
+
+/**
+ * Resets the selected layer to the current master list of selected paddocks.
+ */
+var setSelectedLayer = function() {
+  debug.info('Setting
