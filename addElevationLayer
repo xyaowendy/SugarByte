@@ -1,2 +1,44 @@
 // this file is script which is going to add elevation layer 
 
+// Plot elevation at some points
+
+var elevation = ee.Image('CGIAR/SRTM90_V4');
+
+var allPointsSelected = [
+  ee.Feature(
+      ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
+      {'name': 'point 1'}),
+  ee.Feature(
+      ee.Geometry.Point([145.89668123185277, -17.566176769199103]), 
+      {'name': 'point 2'}),
+  ee.Feature(
+      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+      {'name': 'point 3'}),
+  ee.Feature(
+      ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
+      {'name': 'point 4'})
+];
+
+var rainierWaypoints = ee.FeatureCollection(allPointsSelected);
+
+var chart = ui.Chart.image.byRegion({
+  image: elevation,
+  regions: rainierWaypoints,
+  scale: 200,
+  xProperty: 'name'
+});
+chart.setOptions({
+  title: 'Elevation test chart',
+  vAxis: {
+    title: 'Elevation (meters)'
+  },
+  legend: 'none',
+  lineWidth: 1,
+  pointSize: 4
+});
+
+print(chart);
+
+Map.addLayer(elevation, {min: 500, max: 4500});
+Map.addLayer(rainierWaypoints, {color: 'FF0000'});
+Map.setCenter(145.89865533768773, -17.565685718404545, 11);
