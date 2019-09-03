@@ -1,4 +1,4 @@
-var debug = require('users/csiro1622crop/app:bin/debug');
+var debug = require('users/balddinosaur/sugarbyte:bin/debug');
 
 
 // Manager
