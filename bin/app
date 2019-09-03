@@ -5,7 +5,7 @@ var debug = require('users/csiro1622crop/app:bin/debug');
 
 // Import all required scripts, including those required by imported scripts.
 // ui widgets
-app.draw = require('users/csiro1622crop/app:bin/ui_widgets/draw');
+app.draw = require('users/balddinosaur/sugarbyte:bin/ui_widgets/draw');
 app.infoPanelFactory = require('users/csiro1622crop/app:bin/ui_widgets/information_panel_factory');
 app.paddockInspector = require('users/csiro1622crop/app:bin/ui_widgets/paddock_inspector');
 // paddock management
