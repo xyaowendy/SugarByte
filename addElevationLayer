@@ -1,4 +1,5 @@
-// this file is script which is going to add elevation layer 
+// this file is script which is going to add elevation layer as well as a layer which
+//contains points selected to dispay their elevation.
 
 // Plot elevation at some points
 
