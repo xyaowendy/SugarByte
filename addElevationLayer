@@ -21,13 +21,13 @@ var allPointsSelected = [
 
 var rainierWaypoints = ee.FeatureCollection(allPointsSelected);
 
-var chart = ui.Chart.image.byRegion({
+var elevationTestChart = ui.Chart.image.byRegion({
   image: elevation,
   regions: rainierWaypoints,
   scale: 200,
   xProperty: 'name'
 });
-chart.setOptions({
+elevationTestChart.setOptions({
   title: 'Elevation test chart',
   vAxis: {
     title: 'Elevation (meters)'
@@ -37,7 +37,7 @@ chart.setOptions({
   pointSize: 4
 });
 
-print(chart);
+print(elevationTestChart);
 
 Map.addLayer(elevation, {min: 500, max: 4500});
 Map.addLayer(rainierWaypoints, {color: 'FF0000'});
