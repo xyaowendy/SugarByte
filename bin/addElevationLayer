@@ -16,8 +16,11 @@ var allPointsSelected = [
       ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
       {'name': 'point 3'}),
   ee.Feature(
+      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+      {'name': 'point 4'}),
+  ee.Feature(
       ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
-      {'name': 'point 4'})
+      {'name': 'point 5'})
 ];
 
 var allPointsSelected = ee.FeatureCollection(allPointsSelected);
