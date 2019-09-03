@@ -12,7 +12,7 @@ exports.doc = 'Constructs an interface that allows users to draw geometry on a M
 // Draw object of which all the following code modifies.
 var Draw = {};
 
-var debug = require('users/csiro1622crop/app:bin/debug');
+var debug = require('users/balddinosaur/sugarbyte:bin/debug');
 
 /**
  * This function instantiates all variables that are required before the Draw is setup.
