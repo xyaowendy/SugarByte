@@ -87,12 +87,12 @@ var createHeading = function(paddock) {
 var createNDVIVisualiser = function(paddock) {
   debug.info('Creating NDVI Visualiser widget panel for an information panel.');
   // Date selection widgets
-  // Textual input.js for starting date to visualise from
+  // Textual input for starting date to visualise from
   var startDateBox = ui.Textbox({
     placeholder: manager.app.default.DATE_PLACEHOLDER,
     value: manager.app.default.CHART_START_DATE,
   });
-  // Textual input.js for end date to visualise to
+  // Textual input for end date to visualise to
   var endDateBox = ui.Textbox({
     placeholder: manager.app.default.DATE_PLACEHOLDER,
     value: manager.app.default.CHART_END_DATE,
@@ -135,7 +135,7 @@ var createNDVIVisualiser = function(paddock) {
     ndviChart.setOptions({
       title: 'NDVI Over Time',
       vAxis: {
-        title: 'NDVI'
+        title: 'NDVI_bald'
       },
       hAxis: {
         title: 'date',
@@ -145,7 +145,7 @@ var createNDVIVisualiser = function(paddock) {
         }
       },
       pointSize: 0.6,
-      //lineSize: 0.3, // We don't want lines on the 'raw' scatter plot due to inconsistent data coverage
+      //lineSize: 0.3, // We don't want lines on the 'raw' scatter plot due to inconcistent data coverage
     });
     debug.info('Created NDVI chart for paddock. Setting it to be a scatter chart.');
     ndviChart.setChartType('ScatterChart');
