@@ -135,7 +135,7 @@ var createNDVIVisualiser = function(paddock) {
     ndviChart.setOptions({
       title: 'NDVI Over Time',
       vAxis: {
-        title: 'NDVI'
+        title: 'NDVI_bald'
       },
       hAxis: {
         title: 'date',
