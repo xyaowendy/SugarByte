@@ -36,7 +36,8 @@ var createHeading = function(paddock) {
     value: title,
     style: {
       fontWeight: 'bold',
-      fontSize: '24px',
+      fontSize: '30px',
+      fontFamily: 'Tangerine',
       margin: '10px 5px',
     }
   });
@@ -135,7 +136,7 @@ var createNDVIVisualiser = function(paddock) {
     ndviChart.setOptions({
       title: 'NDVI Over Time',
       vAxis: {
-        title: 'NDVI'
+        title: 'NDVI_bald'
       },
       hAxis: {
         title: 'date',
