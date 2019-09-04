@@ -8,7 +8,7 @@
 // Manager
 var manager = {};
 
-var debug = require('users/balddinosaur/sugarbyte:bin/debug');
+var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 /**
  * Initialises the paddock inspector UI widget.
