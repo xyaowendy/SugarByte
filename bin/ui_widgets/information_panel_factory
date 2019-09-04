@@ -39,8 +39,9 @@ var createHeading = function(paddock) {
       fontSize: '20px',
       fontFamily: 'Comic Sans MS',
       backgroundColor: '#a19e9d',
-      padding: '10px 5px',
+      padding: '5px',
       margin: '10px 5px',
+      
     }
   });
 
