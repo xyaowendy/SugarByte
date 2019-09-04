@@ -38,7 +38,7 @@ var createHeading = function(paddock) {
       fontWeight: 'bold',
       fontSize: '20px',
       fontFamily: 'Comic Sans MS',
-      backgroundColor: '#a19e9d',
+      backgroundColor: '#f0f0f0',
       padding: '5px',
       margin: '10px 5px',
       
