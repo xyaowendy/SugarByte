@@ -52,4 +52,3 @@ print(elevationTestChart);
 Map.addLayer(elevation, {min: 500, max: 4500});
 Map.addLayer(allPointsSelected, {color: 'FF0000'});
 Map.setCenter(145.89865533768773, -17.565685718404545, 11);
-Map.setCenter(145.89865533768773, -17.565685718404545, 11);
