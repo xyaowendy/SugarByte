@@ -37,7 +37,7 @@ var createHeading = function(paddock) {
     style: {
       fontWeight: 'bold',
       fontSize: '50px',
-      fontFamily: 'Tangerine',
+      fontFamily: 'Comic Sans MS',
       margin: '10px 5px',
     }
   });
