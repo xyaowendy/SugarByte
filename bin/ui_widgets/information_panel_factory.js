@@ -8,7 +8,7 @@
 
 // Manager
 // Only used to grab global app access. Management of each individual
-// information panel is performed by paddock_inspector.js
+// information panel is performed by paddock_inspector.js.js
 var manager = {};
 
 var debug = require('users/balddinosaur/sugarbyte:bin/debug');
@@ -38,7 +38,7 @@ var createHeading = function(paddock) {
       fontWeight: 'bold',
       fontSize: '20px',
       fontFamily: 'Comic Sans MS',
-      backgroundColor: '#f0f0f0',
+      backgroundColor: '#dcf0e4',
       padding: '5px',
       margin: '10px 5px',
 

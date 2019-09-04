@@ -11,7 +11,7 @@ var debug = require('users/balddinosaur/sugarbyte:bin/debug');
  * @param {Object} app - The root application object.
  * @param {ee.FeatureCollection} app.paddocks -
  * @param {boolean} app.drawing -
- * @param {function} app.draw.checkClosure -
+ * @param {function} app.draw.js.checkClosure -
  */
 exports.initialise = function(app) {
 	debug.info('Initialising mapClickHandler');
@@ -21,7 +21,7 @@ exports.initialise = function(app) {
 /**
  * Map click event handler.
  * Executed whenever the user clicks the map, provided the map is currently listening.
- * If the user is currently drawing a polygon, the event is handled by app.draw.checkClosuer().
+ * If the user is currently drawing a polygon, the event is handled by app.draw.js.checkClosuer().
  * Otherwise, if the point is within the bounds of a registered paddock, then that paddock is selected.
  * If multiple paddocks encompass the point, then one is selected arbitrarily.
  * @param {Object} clickEventInfo - All information passed by the map click event.

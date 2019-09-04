@@ -9,9 +9,9 @@ var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 // Import all required scripts, including those required by imported scripts.
 // ui widgets
-app.draw = require('users/balddinosaur/sugarbyte:bin/ui_widgets/draw');
+app.draw = require('users/balddinosaur/sugarbyte:bin/ui_widgets/draw.js');
 app.infoPanelFactory = require('users/balddinosaur/sugarbyte:bin/ui_widgets/information_panel_factory.js');
-app.paddockInspector = require('users/balddinosaur/sugarbyte:bin/ui_widgets/paddock_inspector');
+app.paddockInspector = require('users/balddinosaur/sugarbyte:bin/ui_widgets/paddock_inspector.js');
 // paddock management
 app.paddockOutliner = require('users/balddinosaur/sugarbyte:bin/paddock_outliner.js');
 app.paddockManager = require('users/balddinosaur/sugarbyte:bin/paddock_manager.js');
@@ -21,7 +21,7 @@ app.smoother = require('users/balddinosaur/sugarbyte:bin/smooth_filter.js');
 app.imageVisualiser = require('users/balddinosaur/sugarbyte:bin/image_visualiser.js');
 app.mapClickHandler = require('users/balddinosaur/sugarbyte:bin/map_click_handler.js');
 app.input = require('users/balddinosaur/sugarbyte:bin/ui_widgets/input.js');
-app.legendWidget = require('users/balddinosaur/sugarbyte:bin/ui_widgets/legend_widget');
+app.legendWidget = require('users/balddinosaur/sugarbyte:bin/ui_widgets/legend_widget.js');
 
 /**
  * Adds global application constants as properties of the root app object.

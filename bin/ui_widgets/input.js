@@ -6,7 +6,7 @@ var manager = {};
 
 /**
  * Handle selection of an option from the paddock selector
- * Centers the map on that paddock, adds the detailed information pannel to Paddock Inspector
+ * Centers the map on that paddock, adds the detailed information panel to Paddock Inspector
  *
  * @param {String} paddockID - The paddock ID selected from the drop-down menu.
  */
@@ -70,7 +70,7 @@ var createUI = function() {
   var dateSelectLabel = ui.Label('View a Date (Will Display a median image of the surrounding 5 days)');
   mainPanel.widgets().set(2, dateSelectLabel);
 
-  // Date select textbox
+  // Date select text box
   var dateInput = ui.Textbox({
     placeholder: 'yyyy-mm-dd',
   });

@@ -3,7 +3,7 @@ exports.doc = 'Function which takes a dataset and smoothes it.';
 /*
   Filters out 'extreme' values from dataset
   Extreme is judged by whether the normalized difference between the singular
-  datapoint and the datapoints in the 2 months surrounding the point exceeds a
+  datapoint and the data points in the 2 months surrounding the point exceeds a
   given threshold
 
   Can be applied twice with a decreasing threshold for better results
