@@ -38,6 +38,7 @@ var createHeading = function(paddock) {
       fontWeight: 'bold',
       fontSize: '20px',
       fontFamily: 'Comic Sans MS',
+      backgroundColor: 'Gray',
       margin: '10px 5px',
     }
   });
