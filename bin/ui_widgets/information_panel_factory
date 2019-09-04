@@ -36,7 +36,7 @@ var createHeading = function(paddock) {
     value: title,
     style: {
       fontWeight: 'bold',
-      fontSize: '30px',
+      fontSize: '50px',
       fontFamily: 'Tangerine',
       margin: '10px 5px',
     }
