@@ -169,7 +169,7 @@ var createNDVIVisualiser = function(paddock) {
       // var equalDate = ee.Filter.equals('system:time_start', xValue);
       var date = ee.Date(new Date(xValue));
       // Get the 5 day range (guarantees that at least one data point will be present
-      var dateRange = ee.DateRange(equalDate, date.advance(5, 'day'));
+      var dateRange = ee.DateRange(date, date.advance(5, 'day'));
 
       manager.app.imageVisualiser.displayPaddockNDVIMedian(
           dateRange.start(),
