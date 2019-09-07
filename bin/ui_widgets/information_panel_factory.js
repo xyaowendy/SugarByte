@@ -11,7 +11,7 @@
 // information panel is performed by paddock_inspector.js.js
 var manager = {};
 
-var debug = require('users/balddinosaur/sugarbyte:bin/debug');
+var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 /**
  * Initialises the information panel factory.

@@ -7,7 +7,7 @@
 
 var manager = {};
 
-var debug = require('users/balddinosaur/sugarbyte:bin/debug');
+var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 /**
  * Instantiate the paddock outline visualiser tool.
