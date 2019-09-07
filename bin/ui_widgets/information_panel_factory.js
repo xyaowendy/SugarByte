@@ -182,7 +182,7 @@ var createNDVIVisualiser = function(paddock) {
 
         // Show a label with the date on the map.
         label.setValue((new Date(xValue)).toUTCString());
-    }
+    })
 
     ////////////////////////////
   // Visualise button
