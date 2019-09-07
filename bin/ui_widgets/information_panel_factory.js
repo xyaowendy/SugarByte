@@ -162,7 +162,8 @@ var createNDVIVisualiser = function(paddock) {
       value: 'Click a point on the chart to show the NDVI for that date.',
       style: {
         position: 'top-left',
-        height: '80px',
+        height: '40px',
+        opacity: '50%'
       }
     });
     Map.add(label);
@@ -184,7 +185,7 @@ var createNDVIVisualiser = function(paddock) {
           true);
 
       // Show a label with the date on the map.
-      label.setValue(date.toString());
+      label.setValue(date.format('yyyy-mm-dd'));
     })
   };
 
