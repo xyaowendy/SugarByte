@@ -178,8 +178,6 @@ var createNDVIVisualiser = function(paddock) {
             'Paddock NDVI median',
             true);
 
-        Map.layers().reset([l8Layer, sfLayer]);
-
         // Show a label with the date on the map.
         label.setValue((new Date(xValue)).toUTCString());
     })
