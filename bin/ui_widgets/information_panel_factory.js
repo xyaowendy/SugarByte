@@ -160,27 +160,27 @@ var createNDVIVisualiser = function(paddock) {
 
     // Clear the chart container panel and add the new chart
     chartContainer.clear().add(ndviChart);
-  };
 
     // When the chart is clicked, update the map and label.
     ndviChart.onClick(function(xValue, yValue, seriesName) {
-        if (!xValue) return;  // Selection was cleared.
+      if (!xValue) return;  // Selection was cleared.
 
-        // Show the image for the clicked date.
-        var equalDate = ee.Filter.equals('system:time_start', xValue);
-        // Get the 5 day range (guarantees that at least one data point will be present
-        var dateRange = ee.DateRange(equalDate, equalDate.advance(5, 'day'));
+      // Show the image for the clicked date.
+      var equalDate = ee.Filter.equals('system:time_start', xValue);
+      // Get the 5 day range (guarantees that at least one data point will be present
+      var dateRange = ee.DateRange(equalDate, equalDate.advance(5, 'day'));
 
-        manager.app.imageVisualiser.displayPaddockNDVIMedian(
-            dateRange.start(),
-            dateRange.end(),
-            manager.app.paddocks,
-            'Paddock NDVI median',
-            true);
+      manager.app.imageVisualiser.displayPaddockNDVIMedian(
+          dateRange.start(),
+          dateRange.end(),
+          manager.app.paddocks,
+          'Paddock NDVI median',
+          true);
 
-        // Show a label with the date on the map.
-        label.setValue((new Date(xValue)).toUTCString());
+      // Show a label with the date on the map.
+      label.setValue((new Date(xValue)).toUTCString());
     })
+  };
 
     ////////////////////////////
   // Visualise button
