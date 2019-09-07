@@ -161,10 +161,9 @@ var createNDVIVisualiser = function(paddock) {
     var label = ui.Label({
       value: 'Click a point on the chart to show the NDVI for that date.',
       style: {
-        position: 'bottom-left',
-        height: '40px',
+        position: 'top-left',
+        height: '80px',
       }
-
     });
     Map.add(label);
 
@@ -185,7 +184,7 @@ var createNDVIVisualiser = function(paddock) {
           true);
 
       // Show a label with the date on the map.
-      label.setValue(date);
+      label.setValue(date.toString());
     })
   };
 
