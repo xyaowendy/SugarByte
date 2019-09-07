@@ -165,8 +165,9 @@ var createNDVIVisualiser = function(paddock) {
     ndviChart.onClick(function(xValue, yValue, seriesName) {
       if (!xValue) return;  // Selection was cleared.
 
-      // Show the image for the clicked date.
-      var equalDate = ee.Filter.equals('system:time_start', xValue);
+      // // Show the image for the clicked date.
+      // var equalDate = ee.Filter.equals('system:time_start', xValue);
+      var date = ee.Date(new Date(xValue));
       // Get the 5 day range (guarantees that at least one data point will be present
       var dateRange = ee.DateRange(equalDate, equalDate.advance(5, 'day'));
 
