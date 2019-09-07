@@ -140,10 +140,6 @@ var createNDVIVisualiser = function(paddock) {
       title: 'NDVI Over Time',
       vAxis: {
         title: 'NDVI',
-        style: {
-          fontWeight: 'bold',
-          fontSize: '20px',
-        }
       },
       hAxis: {
         title: 'date',
@@ -161,7 +157,15 @@ var createNDVIVisualiser = function(paddock) {
     // Clear the chart container panel and add the new chart
     chartContainer.clear().add(ndviChart);
 
-    var label = ui.Label('Click a point on the chart to show the NDVI for that date.');
+
+    var label = ui.Label({
+      value: 'Click a point on the chart to show the NDVI for that date.',
+      style: {
+        position: 'bottom-left',
+        height: '40px',
+      }
+
+    });
     Map.add(label);
 
     // When the chart is clicked, update the map and label.
