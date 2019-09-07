@@ -181,7 +181,7 @@ var createNDVIVisualiser = function(paddock) {
           true);
 
       // Show a label with the date on the map.
-      label.setValue(date.toUTCString());
+      label.setValue(date);
     })
   };
 
