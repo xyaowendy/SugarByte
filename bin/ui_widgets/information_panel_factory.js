@@ -139,7 +139,11 @@ var createNDVIVisualiser = function(paddock) {
     ndviChart.setOptions({
       title: 'NDVI Over Time',
       vAxis: {
-        title: 'NDVI'
+        title: 'NDVI',
+        style: {
+          fontWeight: 'bold',
+          fontSize: '20px',
+        }
       },
       hAxis: {
         title: 'date',
@@ -149,7 +153,7 @@ var createNDVIVisualiser = function(paddock) {
         }
       },
       pointSize: 0.6,
-      //lineSize: 0.3, // We don't want lines on the 'raw' scatter plot due to inconcistent data coverage
+      //lineSize: 0.3, // We don't want lines on the 'raw' scatter plot due to inconsistent data coverage
     });
     debug.info('Created NDVI chart for paddock. Setting it to be a scatter chart.');
     ndviChart.setChartType('ScatterChart');
