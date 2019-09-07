@@ -163,7 +163,7 @@ var createNDVIVisualiser = function(paddock) {
       style: {
         position: 'top-left',
         height: '40px',
-        opacity: '50%'
+        opacity: '70%',
       }
     });
     Map.add(label);
