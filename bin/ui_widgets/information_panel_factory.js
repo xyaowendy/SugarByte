@@ -173,6 +173,8 @@ var createNDVIVisualiser = function(paddock) {
 
       // Show the image for the clicked date.
       var date = ee.Date(new Date(xValue));
+      debug.info("clicked data is", date);
+
       // Get the 5 day range (guarantees that at least one data point will be present
       var dateRange = ee.DateRange(date, date.advance(5, 'day'));
 
