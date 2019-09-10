@@ -67,6 +67,7 @@ var createHeading = function(paddock) {
    */
   var closeEvent = function(button) {
     manager.app.paddockManager.deselectPaddock(paddock);
+    Map.delete(clicked_time_label);
   };
   var closeButton = ui.Button('Close', closeEvent, false, {});
 
@@ -158,14 +159,14 @@ var createNDVIVisualiser = function(paddock) {
     chartContainer.clear().add(ndviChart);
 
 
-    var label = ui.Label({
+    var clicked_time_label = ui.Label({
       value: 'Click a point on the chart to show the NDVI for that date.',
       style: {
         position: 'top-left',
         height: '40px',
       }
     });
-    Map.add(label);
+    Map.add(clicked_time_label);
 
     // When the chart is clicked, update the map and label.
     ndviChart.onClick(function(xValue, yValue, seriesName) {
@@ -186,7 +187,7 @@ var createNDVIVisualiser = function(paddock) {
           true);
 
       // Show a label with the date on the map.
-      label.setValue(new Date(xValue).toUTCString());
+      clicked_time_label.setValue(new Date(xValue).toUTCString());
     })
   };
 
