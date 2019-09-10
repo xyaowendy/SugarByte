@@ -190,7 +190,7 @@ var createNDVIVisualiser = function(paddock) {
           true);
 
       // Show a label with the date on the map.
-      clicked_time_label.setValue(new Date(xValue).toUTCString());
+      manager.time_lable.setValue(new Date(xValue).toUTCString());
     })
   };
 
