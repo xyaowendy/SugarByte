@@ -75,7 +75,7 @@ var createHeading = function(paddock) {
    */
   var closeEvent = function(button) {
     manager.app.paddockManager.deselectPaddock(paddock);
-    Map.delete(manager.time_lable);
+    Map.remove(manager.time_lable);
   };
   var closeButton = ui.Button('Close', closeEvent, false, {});
 
