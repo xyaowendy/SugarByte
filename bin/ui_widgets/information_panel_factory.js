@@ -19,7 +19,15 @@ var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 exports.initialise = function(app) {
   debug.info('Initialising informationPanelFactory.');
   // Grab a reference to the app
-  manager.app = app;
+  manager.app = app;// create a label to prompt users that points on map can be clicked to show the NDVI for that day on the map
+
+  manager.time_lable  = ui.Label({
+    value: 'Click a point on the chart to show the NDVI for that date.',
+    style: {
+      position: 'top-left',
+      height: '40px',
+    }
+  });
 };
 
 /**
@@ -67,7 +75,7 @@ var createHeading = function(paddock) {
    */
   var closeEvent = function(button) {
     manager.app.paddockManager.deselectPaddock(paddock);
-    Map.delete(clicked_time_label);
+    Map.delete(manager.time_lable);
   };
   var closeButton = ui.Button('Close', closeEvent, false, {});
 
@@ -116,6 +124,8 @@ var createNDVIVisualiser = function(paddock) {
     },
   });
 
+
+
   /**
    * The function to run when the visualise button's onClick event is triggered.
    * Updates the graph to use the new dates in the start/end date textboxes
@@ -158,15 +168,8 @@ var createNDVIVisualiser = function(paddock) {
     // Clear the chart container panel and add the new chart
     chartContainer.clear().add(ndviChart);
 
-
-    var clicked_time_label = ui.Label({
-      value: 'Click a point on the chart to show the NDVI for that date.',
-      style: {
-        position: 'top-left',
-        height: '40px',
-      }
-    });
-    Map.add(clicked_time_label);
+    Map.add(manager.time_lable);
+    debug.info("show time label on map");
 
     // When the chart is clicked, update the map and label.
     ndviChart.onClick(function(xValue, yValue, seriesName) {
