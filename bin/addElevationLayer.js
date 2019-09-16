@@ -31,6 +31,7 @@ var elevationTestChart = ui.Chart.image.byRegion({
   scale: 200,
   xProperty: 'name'
 });
+
 elevationTestChart.setOptions({
   title: 'Elevation test chart',
   vAxis: {
@@ -44,7 +45,7 @@ elevationTestChart.setOptions({
 print(elevationTestChart);
 
 // elevation = elevation.setName("hansen1"); 
-// elevation = elevation.setOpacity(0.5); 
+// elevation = elevation.setOpacity(0.5);
 
 // layer 1 = layer 1.setName("hansen1"); 
 // layer 1 = layer 1.setOpacity(0.5); 
