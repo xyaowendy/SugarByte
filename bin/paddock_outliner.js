@@ -85,6 +85,12 @@ var setSelectedLayer = function() {
       name: LAYER_NAME_SELECTED,
       shown: SHOWN_SELECTED,
   });
+  
+  
+  
+  
+  
+  
 };
 
 
