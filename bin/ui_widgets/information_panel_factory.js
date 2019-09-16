@@ -182,6 +182,8 @@ var createNDVIVisualiser = function(paddock) {
       // Get the 5 day range (guarantees that at least one data point will be present
       var dateRange = ee.DateRange(date, date.advance(5, 'day'));
 
+      manager.app.imageVisualiser.clearAllNdviLayers();
+
       manager.app.imageVisualiser.displayPaddockNDVIMedian(
           dateRange.start(),
           dateRange.end(),
