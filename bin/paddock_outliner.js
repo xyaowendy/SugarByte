@@ -145,11 +145,11 @@ var setElevationLayer = function() {
       {'name': 'point 5'})
 ];
 
-var allPointsSelected = ee.FeatureCollection(allPointsSelected);
+var PointsSelected = ee.FeatureCollection(PointsSelected);
 
 var elevationTestChart = ui.Chart.image.byRegion({
   image: elevation,
-  regions: allPointsSelected,
+  regions: PointsSelected,
   scale: 200,
   xProperty: 'name'
 });
@@ -173,7 +173,7 @@ print(elevationTestChart);
 // layer 1 = layer 1.setOpacity(0.5); 
 
 Map.addLayer(elevation, {min: 500, max: 4500});
-Map.addLayer(allPointsSelected, {color: 'FF0000'});
+Map.addLayer(PointsSelected, {color: 'FF0000'});
 Map.setCenter(145.89865533768773, -17.565685718404545, 11);
   
   
