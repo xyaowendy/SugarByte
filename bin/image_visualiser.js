@@ -51,7 +51,7 @@ exports.clearAllNdviLayers = function() {
  */
 var getImagery = function(start, end, paddocks) {
   // Get image(s) that intersect paddocks on the given date
-  return ee.ImageCollection(manager.app.dataset.filterBounds(paddocks).filterDate(start, end);
+  return ee.ImageCollection(manager.app.dataset).filterBounds(paddocks).filterDate(start, end);
 };
 
 /**
