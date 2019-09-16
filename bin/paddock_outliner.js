@@ -127,7 +127,7 @@ var setElevationLayer = function() {
   });
   
   
-  var allPointsSelected = [
+  var PointsSelected = [
   ee.Feature(
       ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
       {'name': 'point 1'}),
