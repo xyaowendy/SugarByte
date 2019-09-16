@@ -49,7 +49,7 @@ var LAYER_NAME_OUTLINES = 'All paddock outlines';
 var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
 
 // li 
-var LAYER_NAME_ELEVATION = 'Elevation of selected paddock: ';
+var LAYER_NAME_ELEVATION = 'Elevation layer of selected paddock: ';
 
 
 // Whether or not the outlines should be shown automatically.
