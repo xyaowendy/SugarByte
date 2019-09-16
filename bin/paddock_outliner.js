@@ -182,7 +182,7 @@ var setElevationLayer = function() {
 // Map.setCenter(145.89865533768773, -17.565685718404545, 11);
   
   
-// };
+};
 
   // below is added by li   not sure whether it is right 
   
@@ -248,6 +248,7 @@ exports.refreshSelectedOutlines = function() {
   // Create a new layer from the master list of paddocks
   setSelectedLayer();
   setElevationLayer();
+  manager.elevation.setOpacity(0.5);
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.selected); 
