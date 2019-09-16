@@ -112,13 +112,13 @@ var setElevationLayer = function() {
     return;
   }
   // Filter to all the selected paddocks
-  // var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
-  //     manager.app.PROPERTY_SELECTED, 'equals', 1));
+  var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
+      manager.app.PROPERTY_SELECTED, 'equals', 1));
   
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4').paint(selectedPaddocks, 0, 5);
   manager.elevation = ui.Map.Layer({
       eeObject: elevationOfSelectedPaddocks, 
       visParams: elevationVisParams, 
