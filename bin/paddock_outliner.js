@@ -125,6 +125,7 @@ var setElevationLayer = function() {
   
   // Create a layer based off the currently selected paddocks
   var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+  var slope = ee.Terrain.slope(elevationOfSelectedPaddocks);
   manager.elevation = ui.Map.Layer({
       eeObject: elevationOfSelectedPaddocks, 
       // visParams: elevationVisParams, 
@@ -274,7 +275,7 @@ exports.refreshSelectedOutlines = function() {
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.selected); 
-  Map.add(manager.elevation); 
+  Map.add(manager.elevation, {min: 0, max :60}, 'slope'); 
   debug.info('Finished refreshing selected paddock outlines.');
 };
 
