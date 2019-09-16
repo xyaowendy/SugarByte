@@ -196,7 +196,7 @@ exports.refreshSelectedOutlines = function() {
 };
 
 
-// //li
+// // by li, can delete 
 // exports.refreshElevationOutlines = function() {
 //   debug.info('Attempting to refresh elevation paddock outlines.');
 //   // Remove the current layer of selected paddock outlines. 
