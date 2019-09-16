@@ -22,7 +22,7 @@ exports.initialise = function(app) {
   manager.outlines = ui.Map.Layer();
   manager.selected = ui.Map.Layer();
   
-  
+  // li
   manager.elevation = ui.Map.Layer();
 };
 
@@ -40,7 +40,7 @@ var selectedVisParams = {
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
 var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
 
-
+// li 
 var LAYER_NAME_ELEVATION = 'Elevation of selected paddock: ';
 
 
@@ -49,6 +49,7 @@ var LAYER_NAME_ELEVATION = 'Elevation of selected paddock: ';
 var SHOWN_OUTLINES = true;
 var SHOWN_SELECTED = true;
 
+// li
 var SHOWN_ELEVATION= true;
 
 
@@ -98,7 +99,7 @@ var setSelectedLayer = function() {
 };
 
 
-
+/// li 
 var setElevationLayer = function() {
   // Check if the data source for paddock outlines is empty
   if (manager.app.paddocks === null) {
@@ -111,12 +112,12 @@ var setElevationLayer = function() {
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var outlinesOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
-  manager.selected = ui.Map.Layer({
-      eeObject: outlinesOfSelectedPaddocks, 
+  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+  manager.elevation = ui.Map.Layer({
+      eeObject: elevationOfSelectedPaddocks, 
       visParams: selectedVisParams, 
-      name: LAYER_NAME_SELECTED,
-      shown: SHOWN_SELECTED,
+      name: LAYER_NAME_ELEVATION,
+      shown: SHOWN_ELEVATION,
   });
 };
 
