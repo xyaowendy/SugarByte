@@ -24,6 +24,7 @@ exports.initialise = function(app) {
   
   // li
   manager.elevation = ui.Map.Layer();
+  manager.elevation.setOpacity(0.5);
 };
 
 // --------------------------------------------
