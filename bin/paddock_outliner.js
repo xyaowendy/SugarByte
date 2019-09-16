@@ -116,22 +116,48 @@ var setElevationLayer = function() {
   // Filter to all the selected paddocks
   
   
-  // var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
-  //     manager.app.PROPERTY_SELECTED, 'equals', 1));
+  var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
+      manager.app.PROPERTY_SELECTED, 'equals', 1));
   
   
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
   var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+  
+var max = elevationOfSelectedPaddocks.reduceRegion({
+  reducer: ee.Reducer.max(),
+  geometry: selectedPaddocks,
+  scale: 200
+});
+
   manager.elevation = ui.Map.Layer({
-      eeObject: elevationOfSelectedPaddocks, 
+      eeObject: max, 
       // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
   });
   
   manager.elevation.setOpacity(0.5);
+  
+  
+//   var image = ee.Image('CGIAR/SRTM90_V4');
+
+// // The region to reduce within.
+// var poly = ee.Geometry.Rectangle([-109.05, 41, -102.05, 37]);
+
+// // Reduce the image within the given region, using a reducer that
+// // computes the max pixel value.  We also specify the spatial
+// // resolution at which to perform the computation, in this case 200
+// // meters.
+// var max = image.reduceRegion({
+//   reducer: ee.Reducer.max(),
+//   geometry: poly,
+//   scale: 200
+// });
+
+// // Print the result (a Dictionary) to the console.
+// print(max);
   
   
 //   var PointsSelected = [
