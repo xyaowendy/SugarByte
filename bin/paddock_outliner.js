@@ -112,8 +112,11 @@ var setElevationLayer = function() {
     return;
   }
   // Filter to all the selected paddocks
-  var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
-      manager.app.PROPERTY_SELECTED, 'equals', 1));
+  
+  
+  // var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
+  //     manager.app.PROPERTY_SELECTED, 'equals', 1));
+  
   
   //TODO: Check if this set is empty before creating a layer out of it.
   
@@ -127,44 +130,44 @@ var setElevationLayer = function() {
   });
   
   
-  var PointsSelected = [
-  ee.Feature(
-      ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
-      {'name': 'point 1'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89668123185277, -17.566176769199103]), 
-      {'name': 'point 2'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
-      {'name': 'point 3'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
-      {'name': 'point 4'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
-      {'name': 'point 5'})
-];
+//   var PointsSelected = [
+//   ee.Feature(
+//       ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
+//       {'name': 'point 1'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89668123185277, -17.566176769199103]), 
+//       {'name': 'point 2'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+//       {'name': 'point 3'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+//       {'name': 'point 4'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
+//       {'name': 'point 5'})
+// ];
 
-var PointsSelected = ee.FeatureCollection(PointsSelected);
+// var PointsSelected = ee.FeatureCollection(PointsSelected);
 
-var elevationTestChart = ui.Chart.image.byRegion({
-  image: elevation,
-  regions: PointsSelected,
-  scale: 200,
-  xProperty: 'name'
-});
+// var elevationTestChart = ui.Chart.image.byRegion({
+//   image: elevation,
+//   regions: PointsSelected,
+//   scale: 200,
+//   xProperty: 'name'
+// });
 
-elevationTestChart.setOptions({
-  title: 'Elevation test chart',
-  vAxis: {
-    title: 'Elevation (meters)'
-  },
-  legend: 'none',
-  lineWidth: 1,
-  pointSize: 4
-});
+// elevationTestChart.setOptions({
+//   title: 'Elevation test chart',
+//   vAxis: {
+//     title: 'Elevation (meters)'
+//   },
+//   legend: 'none',
+//   lineWidth: 1,
+//   pointSize: 4
+// });
 
-print(elevationTestChart);
+// print(elevationTestChart);
 
 // elevation = elevation.setName("hansen1"); 
 // elevation = elevation.setOpacity(0.5);
