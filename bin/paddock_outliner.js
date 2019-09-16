@@ -152,9 +152,7 @@ var setElevationLayer = function() {
 
 // var allPointsSelected = ee.FeatureCollection(allPointsSelected);
 
-  
-  
-  
+
   // above Li
 
 
