@@ -131,6 +131,8 @@ var setElevationLayer = function() {
       shown: SHOWN_ELEVATION,
   });
   
+  manager.elevation.setOpacity(0.5);
+  
   
 //   var PointsSelected = [
 //   ee.Feature(
@@ -248,7 +250,7 @@ exports.refreshSelectedOutlines = function() {
   // Create a new layer from the master list of paddocks
   setSelectedLayer();
   setElevationLayer();
-  manager.elevation.setOpacity(0.5);
+  //manager.elevation.setOpacity(0.5);
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.selected); 
