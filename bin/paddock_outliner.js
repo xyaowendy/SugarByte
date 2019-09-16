@@ -39,9 +39,9 @@ var selectedVisParams = {
 
 
 //li 
-// var elevationVisParams = {
-//   palette:ee.Image('CGIAR/SRTM90_V4')
-// }
+var elevationVisParams = {
+  palette:'#000000'
+}
 
 
 // Layer titles
