@@ -9,6 +9,8 @@ var manager = {};
 // timezone constant, may wish to migrate to app constants later
 var TIMEZONE = 'Australia/Brisbane';
 
+// var selectedPaddock = ? WDNMD, Image的描述是显示所有的图啊
+
 var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 /**
