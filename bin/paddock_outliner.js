@@ -40,7 +40,7 @@ var selectedVisParams = {
 
 //li 
 var elevationVisParams = {
-  palette:'#000000'
+  palette:none
 }
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
