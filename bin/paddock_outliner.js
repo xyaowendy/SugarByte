@@ -34,7 +34,7 @@ var outlineVisParams = {
   palette:'FFFFFF'
 };
 var selectedVisParams = {
-  palette:'#000000'
+  palette:'FF0000'
 };
 
 
