@@ -134,7 +134,8 @@ var setElevationLayer = function() {
   
   manager.elevation.setOpacity(0.5);
   
-  
+  //https://developers.google.com/earth-engine/tutorial_api_03
+
 //   var image = ee.Image('CGIAR/SRTM90_V4');
 
 // // The region to reduce within.
