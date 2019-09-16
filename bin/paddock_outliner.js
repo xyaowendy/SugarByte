@@ -118,7 +118,7 @@ var setElevationLayer = function() {
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4').paint(selectedPaddocks, 0, 5);
+  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
   manager.elevation = ui.Map.Layer({
       eeObject: elevationOfSelectedPaddocks, 
       // visParams: elevationVisParams, 
