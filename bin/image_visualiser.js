@@ -9,8 +9,7 @@ var manager = {};
 // timezone constant, may wish to migrate to app constants later
 var TIMEZONE = 'Australia/Brisbane';
 
-var app = require('users/balddinosaur/sugarbyte:bin/app.js');
-var selectedPaddocks = app.paddocks;
+// var selectedPaddock = app.pa
 
 var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
@@ -70,9 +69,9 @@ var getImagery = function(start, end, paddocks) {
  *
  * @return {ui.Map.Layer} The layer that was created and added to the Map.
  */
-exports.displayPaddockNDVIOnDate = function(date, selectedPaddocks, layerName, clipToPaddocks) {
+exports.displayPaddockNDVIOnDate = function(date, paddocks, layerName, clipToPaddocks) {
   // Cast singular features to collections
-  var paddockCollection = ee.FeatureCollection(selectedPaddocks);
+  var paddockCollection = ee.FeatureCollection(paddocks);
   // Create a date range of a single day around the given date using  the global timezone
   var inputDay = ee.Date(date).getRange('day', TIMEZONE);
   // Find imagery
@@ -100,11 +99,11 @@ exports.displayPaddockNDVIOnDate = function(date, selectedPaddocks, layerName, c
  *
  * @return {ui.Map.Layer} The layer that was created and added to the Map.
  */
-exports.displayPaddockNDVIMedian = function(start, end, selectedPaddocks, layerName, clipToPaddocks) {
+exports.displayPaddockNDVIMedian = function(start, end, paddocks, layerName, clipToPaddocks) {
   // Cast singular features to collections
-  var paddockCollection = ee.FeatureCollection(selectedPaddocks);
+  var paddockCollection = ee.FeatureCollection(paddocks);
   // Find imagery
-  var images = ee.ImageCollection(getImagery(start, end, selectedPaddocks));
+  var images = ee.ImageCollection(getImagery(start, end, paddocks));
   // Reduce to median values
   var median = images.median();
   if (clipToPaddocks) {
