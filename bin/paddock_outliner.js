@@ -125,9 +125,9 @@ var setElevationLayer = function() {
   
   // Create a layer based off the currently selected paddocks
   var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
-  var slope = ee.Terrain.slope(elevationOfSelectedPaddocks);
+  // var slope = ee.Terrain.slope(elevationOfSelectedPaddocks);
   manager.elevation = ui.Map.Layer({
-      eeObject: slope, 
+      eeObject: elevationOfSelectedPaddocks, 
       // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
