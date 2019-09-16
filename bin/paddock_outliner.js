@@ -92,27 +92,27 @@ var setSelectedLayer = function() {
   // below is added by li   not sure whether it is right 
   
   
-  var elevation = ee.Image('CGIAR/SRTM90_V4');
+//   var elevation = ee.Image('CGIAR/SRTM90_V4');
 
-var allPointsSelected = [
-  ee.Feature(
-      ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
-      {'name': 'point 1'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89668123185277, -17.566176769199103]), 
-      {'name': 'point 2'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
-      {'name': 'point 3'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
-      {'name': 'point 4'}),
-  ee.Feature(
-      ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
-      {'name': 'point 5'})
-];
+// var allPointsSelected = [
+//   ee.Feature(
+//       ee.Geometry.Point([145.8960858217797, -17.56668979348206]),
+//       {'name': 'point 1'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89668123185277, -17.566176769199103]), 
+//       {'name': 'point 2'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+//       {'name': 'point 3'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89865533768773, -17.566054026681186]),
+//       {'name': 'point 4'}),
+//   ee.Feature(
+//       ee.Geometry.Point([145.89923234664957, -17.565685718404545]), 
+//       {'name': 'point 5'})
+// ];
 
-var allPointsSelected = ee.FeatureCollection(allPointsSelected);
+// var allPointsSelected = ee.FeatureCollection(allPointsSelected);
 
   
   
