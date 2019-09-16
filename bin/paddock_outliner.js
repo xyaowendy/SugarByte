@@ -125,6 +125,8 @@ var setElevationLayer = function() {
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
   });
+  
+  
 };
 
   // below is added by li   not sure whether it is right 
