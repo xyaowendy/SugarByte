@@ -40,7 +40,7 @@ var selectedVisParams = {
 
 //li 
 var elevationVisParams = {
-  palette:none
+  palette:ee.Image('CGIAR/SRTM90_V4')
 }
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
