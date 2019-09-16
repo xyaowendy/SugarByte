@@ -39,9 +39,9 @@ var selectedVisParams = {
 
 
 //li 
-var elevationVisParams = {
-  palette:ee.Image('CGIAR/SRTM90_V4')
-}
+// var elevationVisParams = {
+//   palette:ee.Image('CGIAR/SRTM90_V4')
+// }
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
 var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
@@ -121,7 +121,7 @@ var setElevationLayer = function() {
   var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4').paint(selectedPaddocks, 0, 5);
   manager.elevation = ui.Map.Layer({
       eeObject: elevationOfSelectedPaddocks, 
-      visParams: elevationVisParams, 
+      // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
   });
