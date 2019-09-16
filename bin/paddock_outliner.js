@@ -182,7 +182,7 @@ var setElevationLayer = function() {
 // Map.setCenter(145.89865533768773, -17.565685718404545, 11);
   
   
-};
+// };
 
   // below is added by li   not sure whether it is right 
   
