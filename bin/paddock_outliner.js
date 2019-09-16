@@ -172,9 +172,9 @@ print(elevationTestChart);
 // layer 1 = layer 1.setName("hansen1"); 
 // layer 1 = layer 1.setOpacity(0.5); 
 
-Map.addLayer(elevation, {min: 500, max: 4500});
-Map.addLayer(PointsSelected, {color: 'FF0000'});
-Map.setCenter(145.89865533768773, -17.565685718404545, 11);
+// Map.addLayer(elevation, {min: 500, max: 4500});
+// Map.addLayer(PointsSelected, {color: 'FF0000'});
+// Map.setCenter(145.89865533768773, -17.565685718404545, 11);
   
   
 };
