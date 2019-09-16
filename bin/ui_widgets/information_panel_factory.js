@@ -182,17 +182,19 @@ var createNDVIVisualiser = function(paddock) {
       // Get the 5 day range (guarantees that at least one data point will be present
       var dateRange = ee.DateRange(date, date.advance(5, 'day'));
 
+      // clear all ndvi layers before displaying new one
       manager.app.imageVisualiser.clearAllNdviLayers();
-
+      //visualizing ndvi of chosen time point of scatter chart on the map
       manager.app.imageVisualiser.displayPaddockNDVIMedian(
           dateRange.start(),
           dateRange.end(),
+          // the paddock chosen by user
           paddock.geometry(),
           'Paddock NDVI median',
           true);
-
       // Show a label with the date on the map.
       manager.time_lable.setValue(new Date(xValue).toUTCString());
+      debug.info("added image to time series", date);
     })
   };
 
