@@ -24,7 +24,6 @@ exports.initialise = function(app) {
   
   // li
   manager.elevation = ui.Map.Layer();
-  manager.elevation.setOpacity(0.5);
 };
 
 // --------------------------------------------
@@ -240,6 +239,9 @@ exports.refreshSelectedOutlines = function() {
   // Remove the current layer of selected paddock outlines. 
   // Doesn't matter if it hasn't been added to the map yet, so long as it is a Layer object.
   Map.remove(manager.selected); 
+  
+  
+  //li
   Map.remove(manager.elevation); 
   // Create a new layer from the master list of paddocks
   setSelectedLayer();
