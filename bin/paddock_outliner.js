@@ -42,6 +42,8 @@ var selectedVisParams = {
 // var elevationVisParams = {
 //   palette:ee.Image('CGIAR/SRTM90_V4')
 // }
+
+
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
 var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
