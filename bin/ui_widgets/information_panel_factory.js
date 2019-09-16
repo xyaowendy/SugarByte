@@ -185,7 +185,7 @@ var createNDVIVisualiser = function(paddock) {
       manager.app.imageVisualiser.displayPaddockNDVIMedian(
           dateRange.start(),
           dateRange.end(),
-          manager.app.paddocks,
+          paddock,
           'Paddock NDVI median',
           true);
 
