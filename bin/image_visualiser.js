@@ -9,7 +9,7 @@ var manager = {};
 // timezone constant, may wish to migrate to app constants later
 var TIMEZONE = 'Australia/Brisbane';
 
-// var selectedPaddock = app.pa
+// var selectedPaddock = ?
 
 var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
