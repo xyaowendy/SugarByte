@@ -36,6 +36,11 @@ var selectedVisParams = {
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
 var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
+
+
+var LAYER_NAME_ELEVATION = 'Elevation of selected paddock: ';
+
+
 // Whether or not the outlines should be shown automatically.
 // Setting these to false can speed up app performance.
 var SHOWN_OUTLINES = true;
@@ -85,10 +90,33 @@ var setSelectedLayer = function() {
       name: LAYER_NAME_SELECTED,
       shown: SHOWN_SELECTED,
   });
+};
+
+
+
+var setSelectedLayer = function() {
+  debug.info('Setting the selected paddocks indicator map layer.');
+  // Check if the data source for paddock outlines is empty
+  if (manager.app.paddocks === null) {
+    return;
+  }
+  // Filter to all the selected paddocks
+  var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
+      manager.app.PROPERTY_SELECTED, 'equals', 1));
+  debug.info('selectedPaddocks:', selectedPaddocks);
   
+  //TODO: Check if this set is empty before creating a layer out of it.
   
-  
-  
+  // Create a layer based off the currently selected paddocks
+  var outlinesOfSelectedPaddocks = ee.Image().paint(selectedPaddocks, 0, 5);
+  manager.selected = ui.Map.Layer({
+      eeObject: outlinesOfSelectedPaddocks, 
+      visParams: selectedVisParams, 
+      name: LAYER_NAME_SELECTED,
+      shown: SHOWN_SELECTED,
+  });
+};
+
   // below is added by li   not sure whether it is right 
   
   
@@ -117,13 +145,8 @@ var setSelectedLayer = function() {
   
   
   
-  
-  
   // above Li
-  
-  
-  
-};
+
 
 
 
