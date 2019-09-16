@@ -87,7 +87,16 @@ var setSelectedLayer = function() {
   });
   
   
+  // below is added by li   not sure whether it is right 
   
+  
+  
+  
+  
+  
+  
+  
+  // above Li
   
   
   
