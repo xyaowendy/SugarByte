@@ -1,3 +1,6 @@
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var elevationOfSelectedPaddocks = ee.Image("CGIAR/SRTM90_V4");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 /**
  * @fileoverview This script contains functions for 
  * rendering one or more feature collections on to the map as outlines.
@@ -141,12 +144,16 @@ var setElevationLayer = function() {
 //   scale: 200
 // });
   
-  manager.elevation = ui.Map.Layer({
-      eeObject: elevationOfSelectedPaddocks, 
-      // visParams: elevationVisParams, 
-      name: LAYER_NAME_ELEVATION,
-      shown: SHOWN_ELEVATION,
-  });
+  // manager.elevation = ui.Map.Layer({
+  //     eeObject: elevationOfSelectedPaddocks, 
+  //     // visParams: elevationVisParams, 
+  //     name: LAYER_NAME_ELEVATION,
+  //     shown: SHOWN_ELEVATION,
+  // });
+  
+  var visParams = {bands: ['0'], min: -60, max: 2048, gamma: 1};
+  
+    manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams);
   
   manager.elevation.setOpacity(0.5);
   
