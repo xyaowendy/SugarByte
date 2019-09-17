@@ -1,5 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var elevationOfSelectedPaddocks = ee.Image("CGIAR/SRTM90_V4");
+var elevationOfSelectedPaddocks = ee.Image("CGIAR/SRTM90_V4"),
+    imageCollection = ee.ImageCollection("CSIRO/SLGA");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /**
  * @fileoverview This script contains functions for 
@@ -59,7 +60,7 @@ var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
 var LAYER_NAME_ELEVATION = 'Elevation layer of selected paddock: ';
 
 // soil layer title
-var LAYER_NAME_SOIL = 'Soil layer : ';
+var LAYER_NAME_SOIL = 'Soil layer: ';
 
 // Whether or not the outlines should be shown automatically.
 // Setting these to false can speed up app performance.
@@ -120,7 +121,7 @@ var setSelectedLayer = function() {
 /**
  * Resets the soil layer to the current master list of selected paddocks.
  */
-var setSOILLayer = function() {
+  var setSoilLayer = function() {
   debug.info('Setting the selected paddocks soil map layer.');
   // Check if the data source for paddock outlines is empty
   if (manager.app.paddocks === null) {
@@ -134,13 +135,14 @@ var setSOILLayer = function() {
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var soilLayerOfSelectedPaddocks = ee.ImageCollection.filterBounds(selectedPaddocks);
+  var soilLayerOfSelectedPaddocks = ee.ImageCollection('CSIRO/SLGA').filterBounds(selectedPaddocks);
   manager.selected = ui.Map.Layer({
       eeObject: soilLayerOfSelectedPaddocks, 
       name: LAYER_NAME_SOIL,
       shown: SHOWN_SOIL,
   });
 };
+
 
 
 /// li 
@@ -323,12 +325,21 @@ exports.refreshSelectedOutlines = function() {
   
   //li
   Map.remove(manager.elevation); 
+  
+  Map.remove(manager.soil);
+  
   // Create a new layer from the master list of paddocks
   setElevationLayer();
+  
+  setSoilLayer();
+  
   setSelectedLayer();
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.elevation); 
+  
+  Map.add(manager.soil);
+  
   Map.add(manager.selected); 
   debug.info('Finished refreshing selected paddock outlines.');
 };

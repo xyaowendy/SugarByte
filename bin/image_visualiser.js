@@ -22,6 +22,8 @@ exports.initialise = function(app) {
   manager.app = app;
   // Managed list of NDVI imagery layers. Used to remove them all from map when asked to.
   manager.ndviLayers = [];
+  // the elevation layer
+  manager.elevationLayer = null;
 
 };
 
@@ -114,13 +116,21 @@ exports.displayPaddockNDVIMedian = function(start, end, paddocks, layerName, cli
   return layer;
 };
 
-exports.displayElevation = function(paddocks) {
-  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+exports.displayElevation = function(paddocks, layerName, clipToPaddocks) {
+  var paddockCollection = ee.FeatureCollection(paddocks);
+  var elevationImage = ee.Image('CGIAR/SRTM90_V4');
 
   var visParams = {bands: ['elevation'], min: 0, max: 200, palette: ['#1e7a00', '#66b100', '#dff100','#f1c90d',
       '#ffc623', '#ffa114','#ff5a0c']};
 
-  manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams, 'Elevation');
+  if (clipToPaddocks) {
+    elevationOfSelectedPaddock= elevationImage.clipToCollection(paddockCollection);
+  }
 
-  manager.elevation.setOpacity(0.5);
+  var layer = Map.addLayer(paddockCollection, visParams, layerName);
+
+  manager.elevationLayer = layer;
+  manager.elevationLayer.setOpacity(0.5);
+
+  return layer;
 }
