@@ -6,5 +6,4 @@ var collection = ee.ImageCollection('CSIRO/SLGA')
   .filterDate('2000-01-01', '2013-05-01');
 
 // Display the composites.
-Map.
 Map.addLayer(collection);
