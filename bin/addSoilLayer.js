@@ -6,8 +6,6 @@ var imageCollection = ee.ImageCollection("CSIRO/SLGA");
 // Define the visualization parameters.
 var vizParams = {
   bands: ['B5', 'B4', 'B3'],
-  min: 0,
-  max: 0.5,
   gamma: 
 
 // Center the map and display the image.
