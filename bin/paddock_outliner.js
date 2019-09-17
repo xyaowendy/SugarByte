@@ -135,11 +135,11 @@ var poly = manager.app.paddock.geometry();
 // // computes the max pixel value.  We also specify the spatial
 // // resolution at which to perform the computation, in this case 200
 // // meters.
-var max = elevationOfSelectedPaddocks.reduceRegion({
-  reducer: ee.Reducer.max(),
-  geometry: poly,
-  scale: 200
-});
+// var max = elevationOfSelectedPaddocks.reduceRegion({
+//   reducer: ee.Reducer.max(),
+//   geometry: poly,
+//   scale: 200
+// });
   
   manager.elevation = ui.Map.Layer({
       eeObject: elevationOfSelectedPaddocks, 
