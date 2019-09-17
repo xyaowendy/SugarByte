@@ -325,19 +325,19 @@ exports.refreshSelectedOutlines = function() {
   //li
   Map.remove(manager.elevation); 
   
-  //Map.remove(manager.soil);
+  Map.remove(manager.soil);
   
   // Create a new layer from the master list of paddocks
   setElevationLayer();
   
-  //setSoilLayer();
+  setSoilLayer();
   
   setSelectedLayer();
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.elevation); 
   
-  //Map.add(manager.soil);
+  Map.add(manager.soil);
   
   Map.add(manager.selected); 
   debug.info('Finished refreshing selected paddock outlines.');
