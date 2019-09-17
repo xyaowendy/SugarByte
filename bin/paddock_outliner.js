@@ -59,7 +59,7 @@ var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
 var LAYER_NAME_ELEVATION = 'Elevation layer of selected paddock: ';
 
 // soil layer title
-var LAYER_NAME_SOIL = 'Soil layer : ';
+var LAYER_NAME_SOIL = 'Soil layer: ';
 
 // Whether or not the outlines should be shown automatically.
 // Setting these to false can speed up app performance.
@@ -120,7 +120,7 @@ var setSelectedLayer = function() {
 /**
  * Resets the soil layer to the current master list of selected paddocks.
  */
-var setSoilLLayer = function() {
+/**var setSoilLLayer = function() {
   debug.info('Setting the selected paddocks soil map layer.');
   // Check if the data source for paddock outlines is empty
   if (manager.app.paddocks === null) {
@@ -142,6 +142,7 @@ var setSoilLLayer = function() {
   });
 };
 
+*/
 
 /// li 
 var setElevationLayer = function() {
