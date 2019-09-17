@@ -118,7 +118,7 @@ var setSelectedLayer = function() {
 };
 
 /**
- * Resets the selected layer to the current master list of selected paddocks.
+ * Resets the soil layer to the current master list of selected paddocks.
  */
 var setSOILLayer = function() {
   debug.info('Setting the selected paddocks soil map layer.');
@@ -134,12 +134,11 @@ var setSOILLayer = function() {
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var soilLayerOfSelectedPaddocks = ee.Image().paint(selectedPaddocks, 0, 5);
+  var soilLayerOfSelectedPaddocks = ee.ImageCollection.filterBounds(selectedPaddocks);
   manager.selected = ui.Map.Layer({
-      eeObject: outlinesOfSelectedPaddocks, 
-      visParams: selectedVisParams, 
-      name: LAYER_NAME_SELECTED,
-      shown: SHOWN_SELECTED,
+      eeObject: soilLayerOfSelectedPaddocks, 
+      name: LAYER_NAME_SOIL,
+      shown: SHOWN_SOIL,
   });
 };
 
