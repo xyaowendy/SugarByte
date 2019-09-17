@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var soil = ee.ImageCollection("CSIRO/SLGA");
+var imageCollection = ee.ImageCollection("CSIRO/SLGA");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 
 
