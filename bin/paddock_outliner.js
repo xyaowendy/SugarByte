@@ -128,21 +128,21 @@ var setElevationLayer = function() {
   // var slope = ee.Terrain.slope(elevationOfSelectedPaddocks);
   
 
-// The region to reduce within.
-var poly = paddock.geometry();
+// // The region to reduce within.
+// var poly = paddock.geometry();
 
-// Reduce the image within the given region, using a reducer that
-// computes the max pixel value.  We also specify the spatial
-// resolution at which to perform the computation, in this case 200
-// meters.
-var max = elevationOfSelectedPaddocks.reduceRegion({
-  reducer: ee.Reducer.max(),
-  geometry: poly,
-  scale: 200
-});
+// // Reduce the image within the given region, using a reducer that
+// // computes the max pixel value.  We also specify the spatial
+// // resolution at which to perform the computation, in this case 200
+// // meters.
+// var max = elevationOfSelectedPaddocks.reduceRegion({
+//   reducer: ee.Reducer.max(),
+//   geometry: poly,
+//   scale: 200
+// });
   
   manager.elevation = ui.Map.Layer({
-      eeObject: max, 
+      eeObject: elevationOfSelectedPaddocks, 
       // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
