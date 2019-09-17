@@ -151,7 +151,7 @@ var setElevationLayer = function() {
   //     shown: SHOWN_ELEVATION,
   // });
   
-  var visParams = {bands: ['elevation'], min: 0, max: 3000, gamma: 1, palette: ['blue', 'green', 'red']};
+  var visParams = {bands: ['elevation'], min: 0, max: 3000, palette: ['blue', 'green', 'red']};
   
   manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams);
   
