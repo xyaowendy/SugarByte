@@ -120,7 +120,7 @@ var setSelectedLayer = function() {
 /**
  * Resets the soil layer to the current master list of selected paddocks.
  */
-var setSOILLayer = function() {
+var setSoilLLayer = function() {
   debug.info('Setting the selected paddocks soil map layer.');
   // Check if the data source for paddock outlines is empty
   if (manager.app.paddocks === null) {
@@ -134,7 +134,7 @@ var setSOILLayer = function() {
   //TODO: Check if this set is empty before creating a layer out of it.
   
   // Create a layer based off the currently selected paddocks
-  var soilLayerOfSelectedPaddocks = ee.ImageCollection.filterBounds(selectedPaddocks);
+  var soilLayerOfSelectedPaddocks = ee.ImageCollection('CSIRO/SLGA').filterBounds(selectedPaddocks);
   manager.selected = ui.Map.Layer({
       eeObject: soilLayerOfSelectedPaddocks, 
       name: LAYER_NAME_SOIL,
@@ -323,12 +323,15 @@ exports.refreshSelectedOutlines = function() {
   
   //li
   Map.remove(manager.elevation); 
+  Map.remove(manager.soil);
   // Create a new layer from the master list of paddocks
   setElevationLayer();
+  setSoilLayer();
   setSelectedLayer();
   // Add the layer to the map.
   debug.info('Selected paddock outlines layer:', manager.selected);
   Map.add(manager.elevation); 
+  Map.add(manager.soil);
   Map.add(manager.selected); 
   debug.info('Finished refreshing selected paddock outlines.');
 };
