@@ -142,7 +142,7 @@ var max = elevationOfSelectedPaddocks.reduceRegion({
 });
   
   manager.elevation = ui.Map.Layer({
-      eeObject: max, 
+      eeObject: elevationOfSelectedPaddocks, 
       // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
