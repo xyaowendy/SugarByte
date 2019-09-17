@@ -48,7 +48,7 @@ var createConstants = function() {
   // Defaults
   app.default = {
     CHART_START_DATE: '2018-01-01',
-    CHART_END_DATE: nowYear+'-'+nowMonth+'-'+nowDate, // month needs +1
+    CHART_END_DATE: date.getFullYear()+'-0'+date.getMonth()+'-'+date.getDate(), // month needs +1
     MAP_ZOOM: 13,
     MAP_ZOOM_SELECTED: 16,
     mapCoordinates: {
