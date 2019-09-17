@@ -9,8 +9,6 @@ var manager = {};
 // timezone constant, may wish to migrate to app constants later
 var TIMEZONE = 'Australia/Brisbane';
 
-// var selectedPaddock = ? WDNMD, Image的描述是显示所有的图啊
-
 var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
 /**
@@ -19,11 +17,12 @@ var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
  * done when the first paddock is selected.
  */
 exports.initialise = function(app) {
-	debug.info('Initialising imageVisualiser');
+  debug.info('Initialising imageVisualiser');
   // Grab a reference to the app
   manager.app = app;
   // Managed list of NDVI imagery layers. Used to remove them all from map when asked to.
   manager.ndviLayers = [];
+
 };
 
 
@@ -114,3 +113,14 @@ exports.displayPaddockNDVIMedian = function(start, end, paddocks, layerName, cli
   manager.ndviLayers.push(layer);
   return layer;
 };
+
+exports.displayElevation = function(paddocks) {
+  var elevationOfSelectedPaddocks = ee.Image('CGIAR/SRTM90_V4');
+
+  var visParams = {bands: ['elevation'], min: 0, max: 200, palette: ['#1e7a00', '#66b100', '#dff100','#f1c90d',
+      '#ffc623', '#ffa114','#ff5a0c']};
+
+  manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams, 'Elevation');
+
+  manager.elevation.setOpacity(0.5);
+}

@@ -180,21 +180,21 @@ var createNDVIVisualiser = function(paddock) {
       debug.info("clicked data is", date);
 
       // Get the 5 day range (guarantees that at least one data point will be present
-      var dateRange = ee.DateRange(date, date.advance(5, 'day'));
+      // var dateRange = ee.DateRange(date, date.advance(5, 'day'));
 
-      // clear all ndvi layers before displaying new one
+      // clear all NDVI layers before displaying new one
       manager.app.imageVisualiser.clearAllNdviLayers();
-      //visualizing ndvi of chosen time point of scatter chart on the map
-      manager.app.imageVisualiser.displayPaddockNDVIMedian(
-          dateRange.start(),
-          dateRange.end(),
+      //visualizing NDVI of chosen time point of scatter chart on the map
+      manager.app.imageVisualiser.displayPaddockNDVIOnDate(
+          //the clicked date on the scatter chart
+          date,
           // the paddock chosen by user
           paddock.geometry(),
-          'Paddock NDVI median',
+          'Paddock NDVI on chosen date',
           true);
       // Show a label with the date on the map.
       manager.time_lable.setValue(new Date(xValue).toUTCString());
-      debug.info("added image to time series", date);
+      debug.info("added NDVI imagery to time series", date);
     })
   };
 

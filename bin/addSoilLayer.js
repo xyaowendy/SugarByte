@@ -1,14 +1,9 @@
-// Make a soil image out of the mask.
-var soil = mask.not();
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var imageCollection = ee.ImageCollection("CSIRO/SLGA");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
+// Load Landsat 5 data, filter by date and bounds.
+var collection = ee.ImageCollection('CSIRO/SLGA')
+  .filterDate('2000-01-01', '2013-05-01');
 
-// Mask soil with itself to mask all non-soil
-soil = soil.mask(soil);
-
-// Make an image collection of visualization images.
-var mosaic = ee.ImageCollection([
-  median.visualize(visParams),
-  soil.visualize( {palette: '000042'}),
-  ]),mosaic();
-
-// Display the soilLayer on the map.
-Map.addLayer(mosaic, {}, 'custom mosaic');
+// Display the composites.
+Map.addLayer(collection);

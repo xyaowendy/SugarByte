@@ -6,6 +6,9 @@ var farmer = ee.FeatureCollection("projects/1622crop/regions");
 var app = {};
 
 var date = new Date();
+var nowYear = date.getFullYear();
+var nowMonth = date.getMonth()+1;
+var nowDate = date.getDate();
 
 var debug = require('users/balddinosaur/sugarbyte:bin/debug.js');
 
@@ -45,8 +48,8 @@ var createConstants = function() {
   // Defaults
   app.default = {
     CHART_START_DATE: '2018-01-01',
-    CHART_END_DATE: date.getFullYear()+'-0'+date.getMonth()+'-'+date.getDate(), // month needs +1
-    MAP_ZOOM: 13,
+    CHART_END_DATE: nowYear + '-' + nowMonth + '-' + nowDate, // month needs +1
+    MAP_ZOOM: 15,
     MAP_ZOOM_SELECTED: 16,
     mapCoordinates: {
       LON: 145.9222,
@@ -93,7 +96,7 @@ var generateDataset = function() {
 	app.dataset = ee.ImageCollection(SATELLITE_STRING_SENTINEL).filterBounds(point);
 	// Mask clouds from dataset
 	app.dataset = ee.ImageCollection(app.cloudMasker.maskCloudsScoring(
-      app.dataset, app.cloudMasker.SATELLITE.SENTINEL, 1, 1, 1));
+	    app.dataset, app.cloudMasker.SATELLITE.SENTINEL, 1, 1, 1));
 	// Calculate and add NDVI band
 	app.dataset = app.dataset.map(function(image) {
 				var ndvi = image.normalizedDifference([band.NIR, band.RED]).rename(band.NDVI);
