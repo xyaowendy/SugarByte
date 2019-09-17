@@ -129,7 +129,7 @@ var setElevationLayer = function() {
   
 
 // // The region to reduce within.
-var poly = manager.app.paddock.geometry();
+// var poly = manager.app.paddock.geometry();
 
 // // Reduce the image within the given region, using a reducer that
 // // computes the max pixel value.  We also specify the spatial
