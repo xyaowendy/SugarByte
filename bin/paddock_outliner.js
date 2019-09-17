@@ -129,7 +129,7 @@ var setElevationLayer = function() {
   
 
 // The region to reduce within.
-var poly = selectedPaddocks.ge;
+var poly = selectedPaddocks.geometry();
 
 // Reduce the image within the given region, using a reducer that
 // computes the max pixel value.  We also specify the spatial
@@ -142,7 +142,7 @@ var max = elevationOfSelectedPaddocks.reduceRegion({
 });
   
   manager.elevation = ui.Map.Layer({
-      eeObject: elevationOfSelectedPaddocks, 
+      eeObject: max, 
       // visParams: elevationVisParams, 
       name: LAYER_NAME_ELEVATION,
       shown: SHOWN_ELEVATION,
