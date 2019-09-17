@@ -49,7 +49,7 @@ var createConstants = function() {
   app.default = {
     CHART_START_DATE: '2018-01-01',
     CHART_END_DATE: nowYear + '-' + nowMonth + '-' + nowDate, // month needs +1
-    MAP_ZOOM: 13,
+    MAP_ZOOM: 15,
     MAP_ZOOM_SELECTED: 16,
     mapCoordinates: {
       LON: 145.9222,
