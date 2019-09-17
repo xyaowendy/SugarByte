@@ -1,5 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var elevationOfSelectedPaddocks = ee.Image("CGIAR/SRTM90_V4");
+var elevationOfSelectedPaddocks = ee.Image("CGIAR/SRTM90_V4"),
+    imageCollection = ee.ImageCollection("CSIRO/SLGA");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 /**
  * @fileoverview This script contains functions for 
@@ -120,7 +121,7 @@ var setSelectedLayer = function() {
 /**
  * Resets the soil layer to the current master list of selected paddocks.
  */
-/**var setSoilLLayer = function() {
+  var setSoilLayer = function() {
   debug.info('Setting the selected paddocks soil map layer.');
   // Check if the data source for paddock outlines is empty
   if (manager.app.paddocks === null) {
@@ -142,7 +143,7 @@ var setSelectedLayer = function() {
   });
 };
 
-*/
+
 
 /// li 
 var setElevationLayer = function() {
