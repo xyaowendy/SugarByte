@@ -1,14 +1,14 @@
-// Make a soil image out of the mask.
-var soil = mask.not();
+/**** Start of imports. If edited, may not auto-convert in the playground. ****/
+var soil = ee.ImageCollection("CSIRO/SLGA");
+/***** End of imports. If edited, may not auto-convert in the playground. *****/
 
-// Mask soil with itself to mask all non-soil
-soil = soil.mask(soil);
 
-// Make an image collection of visualization images.
-var mosaic = ee.ImageCollection([
-  median.visualize(visParams),
-  soil.visualize( {palette: '000042'}),
-  ]),mosaic();
+// Define the visualization parameters.
+var vizParams = {
+  bands: ['B5', 'B4', 'B3'],
+  min: 0,
+  max: 0.5,
+  gamma: 
 
-// Display the soilLayer on the map.
-Map.addLayer(mosaic, {}, 'custom mosaic');
+// Center the map and display the image.
+Map.addLayer(soil, vizParams, 'false color composite');
