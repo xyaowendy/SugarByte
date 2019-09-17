@@ -27,6 +27,8 @@ exports.initialise = function(app) {
   
   // li
   manager.elevation = ui.Map.Layer();
+  // soil layer
+  manager.soil = ui.Map.Layer();
 };
 
 // --------------------------------------------
@@ -47,6 +49,7 @@ var selectedVisParams = {
 //   palette:'#000000'
 // }
 
+//
 
 // Layer titles
 var LAYER_NAME_OUTLINES = 'All paddock outlines';
@@ -55,6 +58,8 @@ var LAYER_NAME_SELECTED = 'Currently selected paddock: ';
 // li 
 var LAYER_NAME_ELEVATION = 'Elevation layer of selected paddock: ';
 
+// soil layer title
+var LAYER_NAME_SOIL = 'Soil layer : ';
 
 // Whether or not the outlines should be shown automatically.
 // Setting these to false can speed up app performance.
@@ -64,6 +69,8 @@ var SHOWN_SELECTED = true;
 // li
 var SHOWN_ELEVATION= true;
 
+// Setting soil layer to be shown automatically.
+var SHOWN_SOIL = true;
 
 /**
  * Resets the outline layer to the current master list of paddocks.
@@ -102,6 +109,32 @@ var setSelectedLayer = function() {
   
   // Create a layer based off the currently selected paddocks
   var outlinesOfSelectedPaddocks = ee.Image().paint(selectedPaddocks, 0, 5);
+  manager.selected = ui.Map.Layer({
+      eeObject: outlinesOfSelectedPaddocks, 
+      visParams: selectedVisParams, 
+      name: LAYER_NAME_SELECTED,
+      shown: SHOWN_SELECTED,
+  });
+};
+
+/**
+ * Resets the selected layer to the current master list of selected paddocks.
+ */
+var setSOILLayer = function() {
+  debug.info('Setting the selected paddocks soil map layer.');
+  // Check if the data source for paddock outlines is empty
+  if (manager.app.paddocks === null) {
+    return;
+  }
+  // Filter to all the selected paddocks
+  var selectedPaddocks = ee.FeatureCollection(ee.FeatureCollection(manager.app.paddocks).filterMetadata(
+      manager.app.PROPERTY_SELECTED, 'equals', 1));
+  debug.info('selectedPaddocks:', selectedPaddocks);
+  
+  //TODO: Check if this set is empty before creating a layer out of it.
+  
+  // Create a layer based off the currently selected paddocks
+  var soilLayerOfSelectedPaddocks = ee.Image().paint(selectedPaddocks, 0, 5);
   manager.selected = ui.Map.Layer({
       eeObject: outlinesOfSelectedPaddocks, 
       visParams: selectedVisParams, 
@@ -151,10 +184,9 @@ var setElevationLayer = function() {
   //     shown: SHOWN_ELEVATION,
   // });
   
-  var visParams = {bands: ['elevation'], min: 0, max: 200, palette: ['#1e7a00', '#66b100', '#dff100','#f1c90d',
-    '#ffc623', '#ffa114','#ff5a0c']};
+  var visParams = {bands: ['elevation'], min: 0, max: 3000, palette: ['blue', 'green', 'red']};
   
-  manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams, 'Elevation');
+  manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams);
   
   manager.elevation.setOpacity(0.5);
   
