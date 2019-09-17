@@ -153,7 +153,7 @@ var setElevationLayer = function() {
   
   var visParams = {bands: ['0'], min: -60, max: 2048, gamma: 1};
   
-    manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams);
+  manager.elevation = ui.Map.Layer(elevationOfSelectedPaddocks, visParams);
   
   manager.elevation.setOpacity(0.5);
   
