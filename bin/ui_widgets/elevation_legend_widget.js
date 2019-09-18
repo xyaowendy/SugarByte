@@ -1,5 +1,5 @@
 /*
-  Legend Widget
+  Elevation Legend Widget
 */
 
 var manager = {};

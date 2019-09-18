@@ -152,7 +152,7 @@ var initialiseInternalModules = function() {
 	debug.info('Initialising input.js widget.');
 	app.input.initialise(app);
 	
-	// Legend Widget
+	// Legend widget
 	app.legendWidget.initialise(app);
 
 	// Elevation legend widget
