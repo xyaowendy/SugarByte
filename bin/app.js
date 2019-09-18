@@ -28,6 +28,9 @@ app.mapClickHandler = require('users/balddinosaur/sugarbyte:bin/map_click_handle
 app.input = require('users/balddinosaur/sugarbyte:bin/ui_widgets/input.js');
 app.legendWidget = require('users/balddinosaur/sugarbyte:bin/ui_widgets/legend_widget.js');
 
+//elevation widget
+app.elevation_legend_widget = require('users/balddinosaur/sugarbyte:bin/ui_widgets/elevation_legend_widget.js')
+
 /**
  * Adds global application constants as properties of the root app object.
  */
@@ -44,6 +47,13 @@ var createConstants = function() {
     palette: ['red', 'CE7E45', 'FCD163', '66A000', '207401',
         '056201', '011301']
 	};
+
+	// elevation parameters
+	app.elevation = {
+	    min: 0, max: 100,
+        palette: ['#1e7a00', '#66b100', '#dff100','#f1c90d',
+            '#ffc623', '#ffa114','#ff5a0c']
+    };
   
   // Defaults
   app.default = {
@@ -144,6 +154,9 @@ var initialiseInternalModules = function() {
 	
 	// Legend Widget
 	app.legendWidget.initialise(app);
+
+	// Elevation legend widget
+    app.elevation_legend_widget.initialise(app);
 	
 };
 
